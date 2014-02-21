@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TTViewController : UIViewController
+#import "TTViewControllerDelegate.h"
+
+@interface TTViewController : UIViewController<TTViewControllerDelegate>
+
+@property (strong,nonatomic) id<TTViewControllerDelegate> delegate;
+@property (strong,nonatomic) id<TTViewControllerDelegate> owner;
 
 @end

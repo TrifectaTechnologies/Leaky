@@ -7,23 +7,37 @@
 //
 
 #import "TTViewController.h"
+#import "TTAppDelegate.h"
 
 @interface TTViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *leakButton;
 
 @end
 
 @implementation TTViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    if (!self.presentingViewController) {
+        self.leakButton.enabled = NO;
+    }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)addViewController:(id)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    TTViewController *viewController = (TTViewController *)[storyboard instantiateInitialViewController];
+
+    self.delegate = viewController;
+    viewController.owner = self;
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+    
+}
+
+- (IBAction)leakDelegate:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

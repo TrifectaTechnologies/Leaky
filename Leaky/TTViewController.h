@@ -12,7 +12,7 @@
 
 @interface TTViewController : UIViewController<TTViewControllerDelegate>
 
-@property (weak,nonatomic) id<TTViewControllerDelegate> delegate;
+@property (strong,nonatomic) id<TTViewControllerDelegate> delegate;
 @property (strong,nonatomic) id<TTViewControllerDelegate> owner;
 
 @end

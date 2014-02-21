@@ -13,12 +13,32 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *leakButton;
 
+@property (strong, nonatomic) void(^colorBlock)(void);
+
 @end
 
 @implementation TTViewController
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        UIViewController *me = self;
+        self.colorBlock = ^{
+            CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+            CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+            CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+            UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+            
+            me.view.backgroundColor = color;
+        };
+    }
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.colorBlock();
     if (!self.presentingViewController) {
         self.leakButton.enabled = NO;
     }

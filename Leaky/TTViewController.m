@@ -9,6 +9,8 @@
 #import "TTViewController.h"
 #import "TTAppDelegate.h"
 
+#import "TTRandomColor.h"
+
 @interface TTViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *leakButton;
@@ -23,22 +25,22 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        UIViewController *me = self;
         self.colorBlock = ^{
-            CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-            CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-            CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-            UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-            
-            me.view.backgroundColor = color;
+            self.view.backgroundColor = [[TTRandomColor alloc] init];
         };
     }
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.colorBlock();
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.colorBlock();
+    [super viewWillAppear:animated];
     if (!self.presentingViewController) {
         self.leakButton.enabled = NO;
     }

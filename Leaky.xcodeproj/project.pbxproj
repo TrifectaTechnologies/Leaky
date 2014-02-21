@@ -21,6 +21,7 @@
 		01AE775D18B7807E00977B7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01AE773C18B7807E00977B7F /* UIKit.framework */; };
 		01AE776518B7807E00977B7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01AE776318B7807E00977B7F /* InfoPlist.strings */; };
 		01AE776718B7807E00977B7F /* LeakyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AE776618B7807E00977B7F /* LeakyTests.m */; };
+		01AE777718B79AAC00977B7F /* TTRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AE777618B79AAC00977B7F /* TTRandomColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		01AE776418B7807E00977B7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		01AE776618B7807E00977B7F /* LeakyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeakyTests.m; sourceTree = "<group>"; };
 		01AE777018B782FF00977B7F /* TTViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTViewControllerDelegate.h; sourceTree = "<group>"; };
+		01AE777518B79AAC00977B7F /* TTRandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRandomColor.h; sourceTree = "<group>"; };
+		01AE777618B79AAC00977B7F /* TTRandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRandomColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 			children = (
 				01AE774718B7807E00977B7F /* TTAppDelegate.h */,
 				01AE774818B7807E00977B7F /* TTAppDelegate.m */,
+				01AE777518B79AAC00977B7F /* TTRandomColor.h */,
+				01AE777618B79AAC00977B7F /* TTRandomColor.m */,
 				01AE775018B7807E00977B7F /* TTViewController.h */,
 				01AE775118B7807E00977B7F /* TTViewController.m */,
 				01AE777018B782FF00977B7F /* TTViewControllerDelegate.h */,
@@ -262,6 +267,7 @@
 			files = (
 				01AE774918B7807E00977B7F /* TTAppDelegate.m in Sources */,
 				01AE774518B7807E00977B7F /* main.m in Sources */,
+				01AE777718B79AAC00977B7F /* TTRandomColor.m in Sources */,
 				01AE775218B7807E00977B7F /* TTViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
